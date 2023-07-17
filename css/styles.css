@@ -91,8 +91,8 @@ form {
 .completeIcon {
     color: rgba(62, 161, 219, 1);
 }
-.trashIcon:hover {
-    color: #f00;
+.trashicon:hover {
+    color: rgb(255, 0, 0);
 }
 .deleteConfirmationPop {
     position: relative;

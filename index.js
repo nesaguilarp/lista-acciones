@@ -1,3 +1,6 @@
+import checkComplete from "./Componentes/CheckComplete.js";
+import deleteIcon from "./Componentes/deleteIcon.js";
+
 const btn = document.querySelector(`[data-form-btn]`);
 const createtask = (evento) =>{
     evento.preventDefault()
@@ -7,15 +10,18 @@ const createtask = (evento) =>{
     const task = document.createElement(`li`);
     task.classList.add("card")
     input.value = ``;
-    const content = `<div>
-                    <i class="far fa-check-square icon"></i>
-                    <span class="task">${value}</span>
-                    </div>
-                    <i class="fas fa-trash-alt trashIcon icon"></i>`
-    task.innerHTML = content;
-    list.appendChild(task);
-    console.log(content);
-}
-console.log(btn);
+    const taskContent = document.createElement("div");
 
-btn.addEventListener(`click`, createtask);
+    const titleTask = document.createElement("span");
+    titleTask.classList.add("task");
+    titleTask.innerText = value;
+    taskContent.appendChild(checkComplete());
+    taskContent.appendChild(titleTask);
+
+    // task.innerHTML = content;
+    task.appendChild(taskContent)
+    task.appendChild(deleteIcon());
+    list.appendChild(task);
+}
+ //Arrow functions o funciones anonimas
+btn.addEventListener('click', createtask);
